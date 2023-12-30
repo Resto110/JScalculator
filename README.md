@@ -70,3 +70,27 @@ var result = eval("2 + 3");
 ```
 
 It's imperative to exercise caution when utilizing `eval()`, especially in scenarios involving untrusted or user-provided input. The ability of `eval()` to execute arbitrary code introduces security risks, making it a feature to be used judiciously or replaced with safer alternatives in certain contexts.
+
+---
+
+Certainly! Here's a formatted version for a README:
+
+---
+
+## Universal Selector in CSS
+
+In CSS, the asterisk (`*`) serves as a universal selector. This selector has the ability to target all elements on a web page. Its primary use lies in applying styles globally or resetting styles for all elements.
+
+### Usage Example
+
+```css
+* {
+  /* Resetting margins and padding for all elements */
+  margin: 0;
+  padding: 0;
+}
+```
+
+In this example, the `*` selector is employed to set common styles, such as zeroing margins and padding, across all elements. It's important to use the universal selector judiciously to avoid unintended consequences on specific elements.
+
+---
