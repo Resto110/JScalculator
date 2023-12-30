@@ -33,3 +33,20 @@ console.log(result); // Outputs 8
 ```
 
 In this example, `addNumbers` is a function that takes two parameters (`a` and `b`), adds them together, and returns the result. The function is then called with the arguments `3` and `5`, and the result is stored in the variable `result`. JavaScript functions play a crucial role in promoting code reuse, modularity, and maintainability.
+-----------------------------------------------
+
+## `eval(exp)`
+
+The `eval()` function in JavaScript is utilized in this context to dynamically evaluate the value of the expression `exp`. Here's a breakdown:
+
+- **Usage**: `eval(exp)` takes a string (`exp`) as an argument and treats it as JavaScript code, executing the code contained in the string.
+
+- **Purpose**: In the provided code, `eval(exp)` is employed to assess the value of the expression `exp`.
+
+- **Outcome**: If `exp` represents a mathematical expression or valid JavaScript code, the result of its evaluation will be assigned to the 'value' property of the 'textview' input field.
+
+- **Security Considerations**: It's crucial to be aware that using `eval()` introduces security risks, as it opens the door to potential code injection vulnerabilities. Consequently, employing `eval()` is generally discouraged.
+
+- **Best Practices**: Whenever feasible, it is recommended to explore alternative approaches, such as utilizing safer parsing methods or avoiding the use of `eval()` altogether. This helps enhance the security and maintainability of the codebase.
+
+**Note**: The caution against using `eval()` is rooted in its potential to execute arbitrary code, making it susceptible to unintended and potentially harmful consequences. Developers are encouraged to adopt more secure coding practices, especially when dealing with user input or dynamic code generation.
