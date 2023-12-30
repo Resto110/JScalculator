@@ -73,9 +73,6 @@ It's imperative to exercise caution when utilizing `eval()`, especially in scena
 
 ---
 
-Certainly! Here's a formatted version for a README:
-
----
 
 ## Universal Selector in CSS
 
