@@ -33,6 +33,7 @@ console.log(result); // Outputs 8
 ```
 
 In this example, `addNumbers` is a function that takes two parameters (`a` and `b`), adds them together, and returns the result. The function is then called with the arguments `3` and `5`, and the result is stored in the variable `result`. JavaScript functions play a crucial role in promoting code reuse, modularity, and maintainability.
+
 -----------------------------------------------
 
 ## `eval(exp)`
