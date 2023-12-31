@@ -91,3 +91,95 @@ In CSS, the asterisk (`*`) serves as a universal selector. This selector has the
 In this example, the `*` selector is employed to set common styles, such as zeroing margins and padding, across all elements. It's important to use the universal selector judiciously to avoid unintended consequences on specific elements.
 
 ---
+
+# The `<table>` Tag in HTML
+
+The `<table>` tag in HTML is used to create a table. Tables are a way to organize content into rows and columns, making it easier to display and understand structured data. The `<table>` tag is part of a set of tags that work together to define the structure of the table.
+
+## Key Components of the `<table>` Tag:
+
+1. **Table Rows (`<tr>`):**
+   - Inside the `<table>` element, you define rows using the `<tr>` (table row) tag.
+   - Each `<tr>` tag contains one or more table cells (`<td>` or `<th>`).
+
+   ```html
+   <table>
+     <tr>
+       <td>Row 1, Cell 1</td>
+       <td>Row 1, Cell 2</td>
+     </tr>
+     <tr>
+       <td>Row 2, Cell 1</td>
+       <td>Row 2, Cell 2</td>
+     </tr>
+   </table>
+   ```
+
+2. **Table Cells (`<td>` and `<th>`):**
+   - Inside each `<tr>` element, you define cells using the `<td>` (table data) tag for regular cells and `<th>` (table header) tag for header cells.
+   - `<th>` is typically used in the first row or first column to represent header cells.
+
+   ```html
+   <table>
+     <tr>
+       <th>Header 1</th>
+       <th>Header 2</th>
+     </tr>
+     <tr>
+       <td>Row 1, Cell 1</td>
+       <td>Row 1, Cell 2</td>
+     </tr>
+     <tr>
+       <td>Row 2, Cell 1</td>
+       <td>Row 2, Cell 2</td>
+     </tr>
+   </table>
+   ```
+
+3. **Table Head (`<thead>`), Body (`<tbody>`), and Footer (`<tfoot>`):**
+   - While not strictly required, tables can be divided into three sections for better structure.
+   - `<thead>` contains header content (usually within `<th>` elements).
+   - `<tbody>` contains the main content (rows and cells).
+   - `<tfoot>` contains footer content.
+
+   ```html
+   <table>
+     <thead>
+       <tr>
+         <th>Header 1</th>
+         <th>Header 2</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+         <td>Row 1, Cell 1</td>
+         <td>Row 1, Cell 2</td>
+       </tr>
+       <tr>
+         <td>Row 2, Cell 1</td>
+         <td>Row 2, Cell 2</td>
+       </tr>
+     </tbody>
+     <tfoot>
+       <tr>
+         <td>Footer 1</td>
+         <td>Footer 2</td>
+       </tr>
+     </tfoot>
+   </table>
+   ```
+
+4. **Table Caption (`<caption>`):**
+   - The `<caption>` tag can be used to provide a title or caption for the table.
+   - It should be placed immediately after the opening `<table>` tag.
+
+   ```html
+   <table>
+     <caption>My Table Caption</caption>
+     <!-- ... table content ... -->
+   </table>
+   ```
+
+Tables are commonly used to present data in a structured format, such as spreadsheets, calendars, or lists of items. It's essential to use them appropriately to enhance the accessibility and organization of content on a webpage.
+
+---
