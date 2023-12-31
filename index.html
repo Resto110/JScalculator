@@ -6,6 +6,14 @@
   <script>
     // Use insert() function to insert the number in textview.
     function insert(num) {
+      var currentExp = document.form1.textview.value;
+
+      // Check if the clicked button is an operator and if no number is selected
+      if ((['/', '*', '-', '+', '.' ].includes(num)) && (!currentExp.match(/\d/))) {
+        alert("Please select a number first");
+        return;
+      }
+
       document.form1.textview.value = document.form1.textview.value + num;
     }
 
