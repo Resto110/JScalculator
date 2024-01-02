@@ -21,9 +21,31 @@
     function equal() {
       var exp = document.form1.textview.value;
       if (exp) {
-        document.form1.textview.value = eval(exp);
+        // Store the last operation and result
+        var lastOperation = exp;
+        var result = eval(exp);
+
+        // update the textview with the result
+        document.form1.textview.value = result;
+
+        // store the last operation and result for repeating
+        document.form1.lastOperation.value = lastOperation;
+        document.form1.lastResult.value = result;
       }
     }
+
+    // repeat the last operation when the "=" button is pressed again
+    function repeatLastOperation() {
+      var lastOperation = document.form1.lastOperation.value;
+      var lastResult = document.form1.lastResult.value;
+
+      if (lastOperation && lastResult !== undefined) {
+        // update the textview with the lastt operation
+        document.form1.textview.value = lastOperation;
+      }
+    }
+
+
 
     // Here, we create a backspace() function to remove the number at the end of the numeric series in textview.
     function backspace() {
