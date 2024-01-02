@@ -183,3 +183,41 @@ The `<table>` tag in HTML is used to create a table. Tables are a way to organiz
 Tables are commonly used to present data in a structured format, such as spreadsheets, calendars, or lists of items. It's essential to use them appropriately to enhance the accessibility and organization of content on a webpage.
 
 ---
+
+Certainly! Let's break down the conditional check in detail:
+
+```javascript
+if ((['=', 'C', 'DEL', '/', '*', '-', '+'].includes(num)) && (!currentExp.match(/\d/))) {
+  alert("Please select a number first");
+  return;
+}
+```
+
+This conditional check is executed when a button is clicked, and it checks two conditions:
+
+1. **Check if the clicked button is "=", "C", "DEL", or an operator (`/, *, -, +`):**
+   ```javascript
+   ['=', 'C', 'DEL', '/', '*', '-', '+'].includes(num)
+   ```
+   - The array `['=', 'C', 'DEL', '/', '*', '-', '+']` represents a list of special buttons: "=", "C", "DEL", "/", "*", "-", and "+".
+   - The `includes()` method checks if the `num` variable (the clicked button) is present in this array.
+   - If the clicked button is one of these special buttons, the condition evaluates to `true`.
+
+2. **Check if there is no number in the textview:**
+   ```javascript
+   (!currentExp.match(/\d/))
+   ```
+   - `currentExp.match(/\d/)` checks if there is at least one digit (`\d` is a regular expression pattern matching digits) in the `currentExp` string.
+   - The `!` in front negates the result, so the condition becomes true if there are no digits in `currentExp`.
+
+Now, the entire `if` statement is true only if both conditions are met:
+
+- The clicked button is "=", "C", "DEL", or an operator.
+- There is no digit in the current expression (`currentExp`).
+
+If both conditions are true, the code inside the `if` block is executed:
+
+- Display an alert message: "Please select a number first".
+- The `return` statement ends the execution of the `insert()` function, preventing further code from being executed.
+
+In summary, this check ensures that if the user clicks on "=", "C", "DEL", or an operator without having entered any numbers first, an alert is shown, and the function stops further execution.
