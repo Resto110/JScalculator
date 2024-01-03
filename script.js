@@ -25,7 +25,7 @@ function insert(num) {
         var result = eval(exp);
   
         // update the textview with the result
-        document.form1.textview.value = result + '=';
+        document.form1.textview.value = result;
   
         // store the last operation and result for repeating
         document.form1.lastOperation.value = result + '=';
