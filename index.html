@@ -1,112 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculator.com</title>
-  <script>
-    // Use insert() function to insert the number in textview.
-    function insert(num) {
-      var currentExp = document.form1.textview.value;
-
-      // Check if the clicked button is an operator and if no number is selected
-      if ((['/', '*', '-', '+', '.' ].includes(num)) && (!currentExp.match(/\d/))) {
-        alert("Please select a number first");
-        return;
-      }
-
-      document.form1.textview.value = document.form1.textview.value + num;
-    }
-
-    // Use equal() function to return the result based on passed values.
-    function equal() {
-      var exp = document.form1.textview.value;
-      if (exp) {
-        // Store the last operation and result
-        var lastOperation = exp;
-        var result = eval(exp);
-
-        // update the textview with the result
-        document.form1.textview.value = result;
-
-        // store the last operation and result for repeating
-        document.form1.lastOperation.value = lastOperation;
-        document.form1.lastResult.value = result;
-      }
-    }
-
-    // repeat the last operation when the "=" button is pressed again
-    function repeatLastOperation() {
-      var lastOperation = document.form1.lastOperation.value;
-      var lastResult = document.form1.lastResult.value;
-
-      if (lastOperation && lastResult !== undefined) {
-        // update the textview with the lastt operation
-        document.form1.textview.value = lastOperation;
-      }
-    }
-
-
-
-    // Here, we create a backspace() function to remove the number at the end of the numeric series in textview.
-    function backspace() {
-      var exp = document.form1.textview.value;
-      document.form1.textview.value = exp.substring(0, exp.length - 1); // removes the last character in exp
-    }
-  </script>
-
-  <style>
-    /* Create the Outer layout of the Calculator. */
-    .formstyle {
-      width: 300px;
-      height: 330px;
-      margin: 20px auto;
-      border: 3px solid skyblue;
-      border-radius: 5px;
-      padding: 20px;
-      text-align: center;
-      background-color: grey;
-    }
-
-    /* Display top horizontal bar that contain some information. */
-    h1 {
-      text-align: center;
-      padding: 23px;
-      background-color: skyblue;
-      color: white;
-    }
-
-    input:hover {
-      background-color: green;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    .btn {
-      width: 50px;
-      height: 50px;
-      font-size: 25px;
-      margin: 2px;
-      cursor: pointer;
-      background-color: red;
-      color: white;
-    }
-
-    /* It is used to display the numbers, operations and results. */
-    .textview {
-      width: 223px;
-      margin: 5px;
-      font-size: 25px;
-      padding: 5px;
-      background-color: lightgreen;
-    }
-
-    .table {
-      margin: 0 auto;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -150,6 +49,7 @@
       </tr>
     </table>
   </div>
+  <script src="script.js"></script>
 </body>
 
 </html>
