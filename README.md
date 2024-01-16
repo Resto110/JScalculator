@@ -221,3 +221,74 @@ If both conditions are true, the code inside the `if` block is executed:
 - The `return` statement ends the execution of the `insert()` function, preventing further code from being executed.
 
 In summary, this check ensures that if the user clicks on "=", "C", "DEL", or an operator without having entered any numbers first, an alert is shown, and the function stops further execution.
+
+---
+
+## 1. Attaching Event Listener to the Input Element:
+```javascript
+document.getElementById('textview').addEventListener('keydown', function(event) {
+  // ...
+});
+```
+This code uses `document.getElementById('textview')` to get the reference to the input element with the id 'textview', and then it attaches an event listener for the `keydown` event. This means that when a key is pressed down while the input element is in focus, the specified function will be executed.
+
+## 2. Event Object and Key Detection:
+```javascript
+var key = event.key;
+```
+The `event` parameter represents the event object. `event.key` retrieves the key that was pressed during the keyboard event.
+
+## 3. Checking if the Pressed Key is a Number, Operator, or Enter:
+```javascript
+if (/[\d+\-*/.]/.test(key)) {
+  // Prevent the default behavior for all keys except Enter
+  if (key !== 'Enter') {
+    event.preventDefault();
+  }
+  insert(key);
+} else if (key === 'Enter') {
+  // Prevent the default behavior for the Enter key
+  event.preventDefault();
+  equal();
+}
+```
+This block of code checks whether the pressed key is a digit, an operator, or the Enter key. The regular expression `/[\d+\-*/.]/` checks if the key is a digit or one of the specified operators (+, -, *, /, .). If it is, it calls the `insert()` function with the pressed key. If the key is Enter, it calls the `equal()` function. The `event.preventDefault()` is used to prevent the default behavior of the keys (like navigating to a new line for the Enter key).
+
+---
+
+# Regular Expression Explanation
+
+Certainly! Let's break down the regular expression `/[\d+\-*/.]/`:
+
+1. `/` and `/`: Delimiters
+   - In JavaScript, a regular expression literal is enclosed in forward slashes (`/`). The slashes serve as delimiters to define the beginning and end of the regular expression.
+
+2. `[\d+\-*/.]`: Character Class
+   - The square brackets `[]` define a character class, which means "match any single character from the set of characters inside the brackets."
+
+3. `\d`: Digit
+   - `\d` is a shorthand character class that matches any digit (equivalent to `[0-9]`).
+
+4. `+`: Plus Sign (as is)
+   - The plus sign is treated literally in this context, meaning it will match the plus sign character.
+
+5. `\-\`: Minus Sign
+   - `\-` is used to escape the minus sign because in a character class, the minus sign has a special meaning (indicating a range of characters). So, by escaping it with a backslash (`\-`), it is treated as a literal minus sign.
+
+6. `*`: Asterisk (as is)
+   - The asterisk is treated literally and will match the asterisk character.
+
+7. `/`: Forward Slash (as is)
+   - The forward slash is treated literally and will match the forward slash character.
+
+8. `.`: Period (as is)
+   - The period is treated literally and will match the period character.
+
+The entire character class `[\d+\-*/.]` specifies a set of characters that the regular expression is trying to match. In this case, it matches any digit (`\d`), plus sign (`+`), minus sign (`\-`), asterisk (`*`), forward slash (`/`), and period (`.`). This character class is used to check if the pressed key is a digit or one of the specified operators (+, -, *, /, .) in the keyboard event handling logic.
+
+---
+
+# Shorthand Character Explanation
+
+Certainly! In the context of regular expressions, a "shorthand character" or "shorthand character class" refers to a predefined character class that represents a certain category of characters. It provides a concise way to match common types of characters.
+```
