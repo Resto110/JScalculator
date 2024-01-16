@@ -1,3 +1,21 @@
+// Attach the event listener to the input element
+document.getElementById('textview').addEventListener('keydown', function (event) {
+  var key = event.key;
+
+  // Check if the pressed key is a number, operator, or Enter key
+  if (/[d+\-*/.]/.test(key)) {
+    // Prevent the default behavior for all keys except Enter
+    if (key !== 'Enter') {
+      event.preventDefault();
+    }
+    insert(key);
+  } else if (key === 'Enter') {
+    // Prevent the default behavior for the Enter key
+    event.preventDefault();
+    equal();
+  }
+});
+
 // Use insert() function to insert the number in textview.
 function insert(num) {
   var currentExp = document.form1.textview.value;
