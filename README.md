@@ -313,3 +313,67 @@ for (var i = 1; i <= numberOfButtons; i++) {
 Replace `numberOfButtons` with the actual number of buttons you have. This assumes that your buttons have IDs in the format 'btn1', 'btn2', and so on.
 
 Remember to adapt the code based on your specific HTML structure and button IDs or classes.
+
+---
+
+Certainly! Here's the information in Markdown format:
+
+---
+
+# XMLHttpRequest and Server Request Process
+
+```javascript
+var xhr = new XMLHttpRequest();
+```
+
+Here, an instance of the `XMLHttpRequest` object is created. The `XMLHttpRequest` object is a built-in JavaScript object that provides an easy way to make HTTP requests to a web server and handle the server's response.
+
+```javascript
+xhr.open("GET", "store_expression.php?expression=" + encodeURIComponent(expression) + "&result=" + encodeURIComponent(result), true);
+```
+
+The `open` method is called on the `XMLHttpRequest` object to initialize the request. It takes three parameters:
+
+1. **HTTP method ("GET"):** Specifies the HTTP method to be used for the request. In this case, it's a "GET" request. The "GET" method is commonly used for retrieving data from the server.
+
+2. **URL ("store_expression.php?expression=..."):** The second parameter is the URL to which the request will be sent. In this example, it's "store_expression.php" with query parameters appended. The query parameters include the `expression` and `result` values obtained from the JavaScript code.
+
+   - `encodeURIComponent(expression)` is used to encode the `expression` value. This function is necessary to ensure that special characters in the expression are properly encoded for inclusion in a URL.
+
+   - Similarly, `encodeURIComponent(result)` is used to encode the `result` value.
+
+3. **Asynchronous flag (true):** The third parameter is a boolean that specifies whether the request should be asynchronous (`true`) or synchronous (`false`). In this case, it's set to `true` for an asynchronous request. Asynchronous requests allow the JavaScript code to continue executing other tasks without waiting for the server's response.
+
+```javascript
+xhr.send();
+```
+
+The `send` method is called to send the request to the server. This initiates the actual communication with the server. For a "GET" request, the URL with the encoded query parameters is sent to the server.
+
+After the `send` method is called, the browser starts the process of sending the request to the server. Since this is an asynchronous request, the JavaScript code continues to execute without waiting for the server's response.
+
+In a real-world scenario, you would typically set up event listeners to handle the server's response. Common events include:
+
+- **onload:** This event is triggered when the request completes successfully. You can access the server's response in the `xhr.responseText` property.
+
+- **onerror:** This event is triggered if an error occurs during the request.
+
+- **onreadystatechange:** This event is triggered whenever the `readyState` property changes. You can check the `readyState` to determine the current state of the request.
+
+Here's a simple example of using `onload` to handle the server's response:
+
+```javascript
+xhr.onload = function() {
+  if (xhr.status >= 200 && xhr.status < 300) {
+    // The request was successful
+    console.log(xhr.responseText); // Access the server's response
+  } else {
+    // Handle error
+    console.error('Request failed with status ' + xhr.status);
+  }
+};
+```
+
+This example checks if the HTTP status code falls within the range of successful responses (200-299). If it does, it logs the server's response to the console. If there's an error, it logs an error message.
+
+---
