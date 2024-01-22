@@ -79,3 +79,18 @@ function backspace() {
   var exp = document.getElementById('textview').value;
   document.getElementById('textview').value = exp.substring(0, exp.length - 1); // removes the last character in exp
 }
+
+function memorizeExpression() {
+  var expression = document.getElementById('textview').value;
+  var result = lastResult;
+
+  // Send the expression to store_expression to store in session
+  var xhr = new XMLHttpRequest(); // Inizialize new HTTP request
+  xhr.open("GET", "store_expression.php?expression=" + encodeURIComponent(expression) + "&result" + encodeURIComponent(result), true);
+  xhr.send(); // To send the HTTP request
+}
+
+// The history opens in a new tab
+function openHistoryTab() {
+  window.open('history.php', '_blank');
+}
