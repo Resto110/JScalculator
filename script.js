@@ -86,11 +86,11 @@ function memorizeExpression() {
 
   // Send the expression to store_expression to store in session
   var xhr = new XMLHttpRequest(); // Inizialize new HTTP request
-  xhr.open("GET", "store_expression.php?expression=" + encodeURIComponent(expression) + "&result" + encodeURIComponent(result), true);
+  xhr.open("GET", "PHP/store_expression.php?expression=" + encodeURIComponent(expression) + "&result" + encodeURIComponent(result), true);
   xhr.send(); // To send the HTTP request
 }
 
 // The history opens in a new tab
 function openHistoryTab() {
-  window.open('history.php', '_blank');
+  window.open('PHP/history.php', '_blank');
 }
