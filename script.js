@@ -1,3 +1,6 @@
+var lastResult = null;
+
+
 // Attach the event listener to the input element
 document.getElementById('textview').addEventListener('keydown', function (event) {
   var key = event.key;
@@ -16,32 +19,62 @@ document.getElementById('textview').addEventListener('keydown', function (event)
   }
 });
 
-// Use insert() function to insert the number in textview.
-function insert(num) {
+// Use insert() function to insert the number in textview
+function insert(char) {
   var currentExp = document.form1.textview.value;
 
-  // Check if the clicked button is an operator and if no number is selected
-  if ((['/', '*', '-', '+', '.'].includes(num)) && (!currentExp.match(/\d/))) {
-    alert("Please select a number first");
-    return;
+  // When I click on an operator
+  if (['/', '*', '-', '+', '.'].includes(char)) {
+    // check if the exp already contain an operator
+    if (currentExp.match(/[+\-*/.]/)) {
+      alert("Only one operator is allowed between numbers");
+      return;
+    }
+    // Check if exp contains a number before inserting the operator
+    if (!currentExp.match(/\d/)) {
+      alert("Please select a number first");
+      return;
+    }
   }
 
-  document.getElementById('textview').value = currentExp + num;
+  document.getElementById('textview').value = currentExp + char;
 }
 
-// Use equal() function to return the result based on passed values.
+// Clear the textview
+function clearTextView() {
+  document.getElementById('textview').value = '';
+}
+
+// Use equal() function to return the result based on passed values
 function equal() {
   var exp = document.getElementById('textview').value;
 
   if (exp) {
-    var result;
-    result = eval(exp);
+    lastResult = eval(exp);
+    document.getElementById('textview').value = lastResult;
 
-    document.getElementById('textview').value = result;
+    var buttons = document.getElementsByClassName('btn');
+
+    // Divide by 0 checker 
+    if (isNaN(lastResult) || lastResult === Infinity || lastResult === -Infinity) {
+      // Error Screen
+      document.body.classList.add('error');
+
+      // Error message
+      setTimeout(function () {
+        alert("Good Job! You just broke the calculator. Please reload");
+      }, 500);
+
+      // Disable all buttons
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = true;
+      }
+    }
   }
 }
 
-// Here, we create a backspace() function to remove the number at the end of the numeric series in textview.
+
+// Create a backspace() function to remove the number at the end of the numeric series in textview
 function backspace() {
   var exp = document.getElementById('textview').value;
   document.getElementById('textview').value = exp.substring(0, exp.length - 1); // removes the last character in exp

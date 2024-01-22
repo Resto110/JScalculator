@@ -292,3 +292,24 @@ The entire character class `[\d+\-*/.]` specifies a set of characters that the r
 
 Certainly! In the context of regular expressions, a "shorthand character" or "shorthand character class" refers to a predefined character class that represents a certain category of characters. It provides a concise way to match common types of characters.
 ```
+
+---
+
+### Selecting and Disabling Buttons in JavaScript
+
+You can use either class or ID to select and disable the buttons in JavaScript. In the provided code, the `getElementById` method is used, which is suitable for selecting a single element by its ID. However, if you want to select multiple elements with a shared class (like 'btn'), you should use `getElementsByClassName` or `querySelectorAll` instead.
+
+In the given case, if each button has a unique ID, you could modify the code to use IDs. For example, if your buttons have IDs like 'btn1', 'btn2', etc., you could access them individually using `getElementById`.
+
+Here's an example using IDs:
+
+```javascript
+var buttons = [];
+for (var i = 1; i <= numberOfButtons; i++) {
+  buttons.push(document.getElementById('btn' + i));
+}
+```
+
+Replace `numberOfButtons` with the actual number of buttons you have. This assumes that your buttons have IDs in the format 'btn1', 'btn2', and so on.
+
+Remember to adapt the code based on your specific HTML structure and button IDs or classes.

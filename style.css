@@ -8,6 +8,7 @@
     padding: 20px;
     text-align: center;
     background-color: grey;
+    z-index: 2;
   }
   
   /* Display top horizontal bar that contains some information. */
@@ -16,10 +17,12 @@
     padding: 23px;
     background-color: skyblue;
     color: white;
+    z-index: 2;
   }
   
   input:hover {
     background-color: green;
+    z-index: 2;
   }
   
   * {
@@ -27,6 +30,13 @@
     padding: 0;
   }
   
+  body.error {
+    background-image: url('images/unmountable-boot-volume.png');
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: 9999;
+  }
+
   .btn {
     width: 50px;
     height: 50px;
@@ -35,18 +45,49 @@
     cursor: pointer;
     background-color: red;
     color: white;
+    z-index: 2;
   }
   
   /* It is used to display the numbers, operations, and results. */
   .textview {
-    width: 223px;
+    width: 246px;
     margin: 5px;
     font-size: 25px;
     padding: 5px;
     background-color: lightgreen;
+    z-index: 2;
   }
   
   .table {
     margin: 0 auto;
+    z-index: 2;
   }
+
+  /*Style for the history button*/
+
+  .circle-button {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    background-color: #ff9248;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .material-symbols-outlined {
+   color: white;
+   width: 25px;
+   height: 25px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   font-size: 2.5rem;
+   transform: translateX(-50%) translateY(-50%);
+  }
+
   
