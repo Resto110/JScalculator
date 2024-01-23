@@ -377,3 +377,47 @@ xhr.onload = function() {
 This example checks if the HTTP status code falls within the range of successful responses (200-299). If it does, it logs the server's response to the console. If there's an error, it logs an error message.
 
 ---
+
+Certainly! Here's the PHP code explained in Markdown format:
+
+### 1. Session Start
+```php
+session_start();
+```
+- `session_start()` is a PHP function used to initialize or resume a session. Sessions in PHP provide a way to store information across multiple pages during a user's visit to a website.
+
+### 2. Checking Parameters
+```php
+if (isset($_GET['expression']) && isset($_GET['result'])) {
+```
+- `isset()` is a PHP function that checks if a variable is set and is not null.
+- `$_GET` is a superglobal array in PHP used to collect data sent to the server via HTTP GET method, typically from form submissions or appended to URLs.
+
+   This condition checks whether both 'expression' and 'result' parameters are set in the URL. For example, if your URL is `example.com/page.php?expression=abc&result=123`, it checks for the presence of both 'expression' and 'result' in the URL.
+
+### 3. Processing Parameters
+```php
+$expression = $_GET['expression'];
+$result = $_GET['result'];
+```
+- Here, the values of 'expression' and 'result' are retrieved from the URL and stored in PHP variables.
+- For example, if the URL is `example.com/page.php?expression=abc&result=123`, then `$expression` would be assigned the value 'abc' and `$result` would be assigned the value '123'.
+
+### 4. Storing Data in Session
+```php
+$_SESSION['expression_history'][] = [
+    'expression' => $expression,
+    'result' => $result,
+    'dateTime' => date('Y-m-d H:i:s')
+];
+```
+- `$_SESSION` is a superglobal array used to store session variables.
+- 'expression_history' is an array stored in the session, representing a history of expressions and results.
+- A new entry is added to 'expression_history', which is an associative array containing:
+   - 'expression': The expression value obtained from the URL.
+   - 'result': The result value obtained from the URL.
+   - 'dateTime': The current date and time in the 'Y-m-d H:i:s' format when this entry is added.
+
+This code captures user inputs (expression and result) from the URL and maintains a history of these inputs within the user's session. It's useful for tracking user interactions or calculations across different pages of a website during a single visit, and the session-based storage ensures data persistence as the user navigates through the site.
+
+---
