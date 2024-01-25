@@ -54,7 +54,7 @@ function equal() {
       // Error message
       setTimeout(function () {
         textview.disabled = true;
-        
+
         alert("Good Job! You just broke the calculator. Please reload");
       }, 500);
 
@@ -64,17 +64,8 @@ function equal() {
         buttons[i].disabled = true;
       }
     }
-
-    // Memorize the expression and result
-    memorizeExpression(exp, lastResult);
   }
-}
 
-// New function to memorize expression and result
-function memorizeExpression(expression, result) {
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", "PHP/store_expression.php?expression=" + encodeURIComponent(expression) + "&result=" + encodeURIComponent(result), true);
-  xhr.send();
 }
 
 // Create a backspace() function to remove the number at the end of the numeric series in textview
