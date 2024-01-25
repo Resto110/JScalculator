@@ -1,6 +1,5 @@
 var lastResult = null;
 
-
 // Attach the event listener to the input element
 document.getElementById('textview').addEventListener('keydown', function (event) {
   var key = event.key;
@@ -20,24 +19,16 @@ document.getElementById('textview').addEventListener('keydown', function (event)
 });
 
 // Use insert() function to insert the number in textview
-function insert(char) {
+function insert(num) {
   var currentExp = document.form1.textview.value;
 
-  // When I click on an operator
-  if (['/', '*', '-', '+', '.'].includes(char)) {
-    // check if the exp already contain an operator
-    if (currentExp.match(/[+\-*/.]/)) {
-      alert("Only one operator is allowed between numbers");
-      return;
-    }
-    // Check if exp contains a number before inserting the operator
-    if (!currentExp.match(/\d/)) {
-      alert("Please select a number first");
-      return;
-    }
+  // Check if the clicked button is an operator and if no number is selected
+  if (['/', '*', '-', '+', '.'].includes(num) && !currentExp.match(/\d/)) {
+    alert("Please select a number first");
+    return;
   }
 
-  document.getElementById('textview').value = currentExp + char;
+  document.getElementById('textview').value = currentExp + num;
 }
 
 // Clear the textview
@@ -53,10 +44,10 @@ function equal() {
     lastResult = eval(exp);
     document.getElementById('textview').value = lastResult;
 
-    var buttons = document.getElementsByClassName('btn');
+    var buttons = document.getElementById('btn');
 
     // Divide by 0 checker 
-    if (isNaN(lastResult) || lastResult === Infinity || lastResult === -Infinity) {
+    if (isNaN(lastResult)) {
       // Error Screen
       document.body.classList.add('error');
 
@@ -65,7 +56,8 @@ function equal() {
         alert("Good Job! You just broke the calculator. Please reload");
       }, 500);
 
-      // Disable all buttons
+      textview.disabled = true;
+
       for (var i = 0; i < buttons.length; i++) {
         buttons[i].disabled = true;
       }
@@ -76,6 +68,12 @@ function equal() {
   }
 }
 
+// New function to memorize expression and result
+function memorizeExpression(expression, result) {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "PHP/store_expression.php?expression=" + encodeURIComponent(expression) + "&result=" + encodeURIComponent(result), true);
+  xhr.send();
+}
 
 // Create a backspace() function to remove the number at the end of the numeric series in textview
 function backspace() {
@@ -83,9 +81,15 @@ function backspace() {
   document.getElementById('textview').value = exp.substring(0, exp.length - 1); // removes the last character in exp
 }
 
-// New function to memorize expression and result
-function memorizeExpression(expression, result) {
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", "PHP/store_expression.php?expression=" + encodeURIComponent(expression) + "&result=" + encodeURIComponent(result), true);
-  xhr.send();
+// Store the last result
+function storeLastResult() {
+  return lastResult;
+}
+
+// Display the last result on the screen
+function showLastResultOnDisplay() {
+  var storedResult = storeLastResult();
+  if (storedResult !== null) {
+    document.getElementById('textview').value = storedResult;
+  }
 }
