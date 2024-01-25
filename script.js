@@ -53,10 +53,12 @@ function equal() {
 
       // Error message
       setTimeout(function () {
+        textview.disabled = true;
+        
         alert("Good Job! You just broke the calculator. Please reload");
       }, 500);
 
-      textview.disabled = true;
+      
 
       for (var i = 0; i < buttons.length; i++) {
         buttons[i].disabled = true;
