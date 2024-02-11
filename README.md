@@ -421,3 +421,11 @@ $_SESSION['expression_history'][] = [
 This code captures user inputs (expression and result) from the URL and maintains a history of these inputs within the user's session. It's useful for tracking user interactions or calculations across different pages of a website during a single visit, and the session-based storage ensures data persistence as the user navigates through the site.
 
 ---
+
+# Understanding Query Parameters in Web Development
+
+Ah, I see! The term "query parameter" refers to the key-value pairs that are appended to the end of a URL in a GET request. For example, in the URL `http://example.com/page?param1=value1&param2=value2`, `param1` and `param2` are query parameters, and their corresponding values are `value1` and `value2`.
+
+When a user submits a form with a GET method or clicks on a link with query parameters, the browser constructs a URL containing those parameters and sends a GET request to the server. The server then parses these parameters and can use them to process the request or generate a response.
+
+In the context of the previous discussion, when the user clicks the "=" button in the calculator interface, the JavaScript code redirects to a URL like `history.php?expression=...`, where `expression` is a query parameter containing the expression entered by the user. This allows the `history.php` script to retrieve the expression from the URL and process it accordingly.
