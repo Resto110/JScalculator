@@ -10,9 +10,11 @@
 </head>
 
 <body>
+<?php include 'calculator_form.php'; ?>
+<?php if (isset($result)) echo "<h2>Result: $result</h2>"; ?>
+
   <div id="main">
     <h1>A Simple JS Calculator</h1>
-    
     <div class="formstyle">
       <form name="form1">
         <input class="textview" name="textview" id="textview">
@@ -55,7 +57,7 @@
       </table>
     </div>
     <!--Circle history button-->
-    <div class="circle-button" onclick="memorizeExpression(); openHistoryTab()">
+    <div class="circle-button" onclick="openHistoryTab()">
       <i class="material-symbols-outlined">History</i>
     </div>
   </div>
