@@ -49,9 +49,6 @@ function equal() {
 
     var buttons = document.getElementById('btn');
 
-    // Redirect to history page with expression as a query parameter
-    window.location.href = "history.php";
-
     // Divide by 0 checker 
     if (isNaN(lastResult)) {
       // Error Screen
