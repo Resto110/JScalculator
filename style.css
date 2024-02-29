@@ -63,31 +63,4 @@
     z-index: 2;
   }
 
-  /*Style for the history button*/
-
-  .circle-button {
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    width: 50px;
-    height: 50px;
-    background-color: #ff9248;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .material-symbols-outlined {
-   color: white;
-   width: 25px;
-   height: 25px;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   font-size: 2.5rem;
-   transform: translateX(-50%) translateY(-50%);
-  }
-
-  
+ 
